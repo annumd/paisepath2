@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - PaisePath</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+
+        .top-buttons button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s ease;
+        }
+
+        .top-buttons button:hover {
+            background: #45a049;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        table th {
+            background: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .status-paid {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .status-failed {
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>Transaction History</header>
+
+    <div class="top-buttons">
+        <button onclick="location.href='features.html'">🏠 Dashboard</button>
+        <button onclick="location.href='login.html'">Logout</button>
+    </div>
+
+    <div class="container">
+        <h2>Your Recent Transactions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Transaction ID</th>
+                    <th>Description</th>
+                    <th>Amount (₹)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01-Oct-2025</td>
+                    <td>TXN1011</td>
+                    <td>Monthly Group Deposit</td>
+                    <td>500</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>10-Oct-2025</td>
+                    <td>TXN1022</td>
+                    <td>Emergency Fund Withdrawal</td>
+                    <td>1200</td>
+                    <td class="status-paid">Paid</td>
+                </tr>
+                <tr>
+                    <td>15-Oct-2025</td>
+                    <td>TXN1035</td>
+                    <td>Contribution Skipped (Penalty)</td>
+                    <td>100</td>
+                    <td class="status-failed">Failed</td>
+                </tr>
+                <tr>
+                    <td>20-Oct-2025</td>
+                    <td>TXN1044</td>
+                    <td>Bonus Reward Points Redeemed</td>
+                    <td>250</td>
+                    <td class="status-pending">Pending</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
