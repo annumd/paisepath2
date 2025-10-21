@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaisePath Features</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card h2 { margin-top: 0; color: #333; font-size: 1.5em; }
+        .feature-card p { color: #555; line-height: 1.6; }
+        button {
+            padding: 8px 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+
+<header>PaisePath Savings Platform</header>
+
+<div class="container">
+    <div class="features-grid">
+        <div class="feature-card">
+            <h2>Savings Groups</h2>
+            <p>Users can create and join savings groups with fixed contribution amounts and cycle durations, making saving collaborative and organized.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Contributions Tracking</h2>
+            <p>Track your deposits and view your contribution history.</p>
+            <button onclick="location.href='contributions.html'">View Contributions</button>
+        </div>
+        <div class="feature-card">
+            <h2>Emergency Fund Bidding</h2>
+            <p>Members can request or bid for pooled funds in emergencies. Funds are allocated based on group consensus or pre-defined rules.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Transaction History</h2>
+            <p>Every transaction is logged in detail, aiding transparency, record keeping, and dispute resolution when needed.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Gamification</h2>
+            <p>Reward consistent savers with leaderboards and bonus points, making saving fun and motivating users to participate regularly.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Payment Records</h2>
+            <p>Simulated UPI-like records track deposits and payouts, ensuring smooth and reliable financial transactions.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Fraud Detection</h2>
+            <p>Basic logic flags missed payments or irregular activities, maintaining the integrity and trustworthiness of the system.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Notifications</h2>
+            <p>SMS/email reminders keep users informed of upcoming contributions, ensuring timely payments and engagement.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
