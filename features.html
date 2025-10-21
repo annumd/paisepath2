@@ -10,6 +10,7 @@
       background: #f5f7fa;
       margin: 0;
     }
+
     header {
       background: #4CAF50;
       color: white;
@@ -17,12 +18,14 @@
       padding: 20px 0;
       font-size: 2em;
     }
+
     .top-buttons {
       display: flex;
       justify-content: center;
       margin: 20px 0;
       gap: 15px;
     }
+
     .top-buttons button {
       padding: 10px 20px;
       background: #4CAF50;
@@ -34,37 +37,52 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       transition: background 0.3s ease;
     }
-    .top-buttons button:hover { background: #45a049; }
+
+    .top-buttons button:hover {
+      background: #45a049;
+    }
+
     .container {
       max-width: 1200px;
       margin: 10px auto;
       padding: 0 20px;
     }
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
+
+    /* Clickable feature cards */
     .feature-card {
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 20px;
-      transition: transform 0.2s ease;
-    }
-    .feature-card:hover { transform: translateY(-5px); }
-    .feature-card h2 { margin-top: 0; color: #333; font-size: 1.5em; }
-    .feature-card p { color: #555; line-height: 1.6; }
-    .feature-card button {
-      padding: 8px 16px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 6px;
+      transition: all 0.2s ease;
       cursor: pointer;
-      margin-top: 10px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
-    .feature-card button:hover { background: #45a049; }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      background: #f0fff4;
+    }
+
+    .feature-card h2 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1.5em;
+    }
+
+    .feature-card p {
+      color: #555;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -82,40 +100,35 @@
 
 <div class="container">
   <div class="features-grid">
-    <div class="feature-card">
+    <a href="savings.html" class="feature-card">
       <h2>Savings Groups</h2>
       <p>Users can create and join savings groups with fixed contribution amounts and cycle durations.</p>
-      <button onclick="location.href='savings.html'">Go to Savings Groups</button>
-    </div>
+    </a>
 
-    <div class="feature-card">
+    <a href="contributions.html" class="feature-card">
       <h2>Contributions Tracking</h2>
       <p>Track your deposits and view your contribution history.</p>
-      <button onclick="location.href='contributions.html'">View Contributions</button>
-    </div>
+    </a>
 
-    <div class="feature-card">
+    <a href="emergency.html" class="feature-card">
       <h2>Emergency Fund Tracking</h2>
       <p>Request pooled funds during emergencies and view the approval status.</p>
-      <button onclick="location.href='emergency.html'">Go to Fund Tracking</button>
-    </div>
+    </a>
 
-    <div class="feature-card">
+    <a href="transaction.html" class="feature-card">
       <h2>Transaction History</h2>
       <p>Every transaction is logged in detail for transparency and dispute resolution.</p>
-      <button onclick="location.href='transaction.html'">View Transaction History</button>
-    </div>
+    </a>
 
-    <div class="feature-card">
+    <a href="gamification.html" class="feature-card">
       <h2>Gamification</h2>
       <p>Earn points and rewards for consistent saving through leaderboards and achievements.</p>
-      <button onclick="location.href='gamification.html'">View Gamification</button>
-    </div>
+    </a>
 
-    <div class="feature-card">
+    <a href="announcements.html" class="feature-card">
       <h2>Announcements</h2>
       <p>Receive important updates and news about your savings groups or platform activities.</p>
-    </div>
+    </a>
   </div>
 </div>
 
