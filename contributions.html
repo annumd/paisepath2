@@ -1,78 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contributions Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            margin: 0;
-        }
-        header {
-            background: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 2em;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background: #4CAF50;
-            color: white;
-        }
-        button {
-            background: #ff5722;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 20px 0;
-        }
-        button:hover { background: #e64a19; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributions Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #4CAF50;
+      color: white;
+    }
+    button {
+      background: #ff5722;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+    button:hover { background: #e64a19; }
+    input[type="text"], input[type="number"] {
+      padding: 6px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 
 <header>Monthly Contributions</header>
 <div class="container">
-    <button onclick="location.href='features.html'">Back to Features</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Month</th>
-                <th>Amount Deposited (₹)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>January</td><td>2000</td></tr>
-            <tr><td>February</td><td>2500</td></tr>
-            <tr><td>March</td><td>1800</td></tr>
-            <tr><td>April</td><td>2200</td></tr>
-            <tr><td>May</td><td>3000</td></tr>
-            <tr><td>June</td><td>2000</td></tr>
-        </tbody>
-    </table>
+  <button onclick="location.href='features.html'">Back to Features</button>
+
+  <table id="contributionTable">
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Amount Deposited (₹)</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="monthInput" placeholder="Enter month"></td>
+        <td><input type="number" id="amountInput" placeholder="Enter amount"></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>January</td><td>2000</td></tr>
+      <tr><td>February</td><td>2500</td></tr>
+      <tr><td>March</td><td>1800</td></tr>
+      <tr><td>April</td><td>2200</td></tr>
+      <tr><td>May</td><td>3000</td></tr>
+      <tr><td>June</td><td>2000</td></tr>
+    </tbody>
+  </table>
+
+  <button onclick="addContribution()">Add Contribution</button>
 </div>
+
+<script>
+function addContribution() {
+  const month = document.getElementById('monthInput').value.trim();
+  const amount = document.getElementById('amountInput').value.trim();
+
+  if (!month || !amount) {
+    alert("Please enter both month and amount!");
+    return;
+  }
+
+  const table = document.getElementById('contributionTable').getElementsByTagName('tbody')[0];
+  const newRow = table.insertRow();
+  const cellMonth = newRow.insertCell(0);
+  const cellAmount = newRow.insertCell(1);
+
+  cellMonth.textContent = month;
+  cellAmount.textContent = amount;
+
+  // Clear inputs after adding
+  document.getElementById('monthInput').value = '';
+  document.getElementById('amountInput').value = '';
+}
+</script>
 
 </body>
 </html>
