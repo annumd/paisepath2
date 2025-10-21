@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Announcements - PaisePath</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 2em;
+    }
+
+    .top-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      gap: 15px;
+    }
+
+    .top-buttons button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
+
+    .top-buttons button:hover { background: #45a049; }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .announcement-column {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .announcement-card {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+
+    .announcement-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background: #f0fff4;
+    }
+
+    .announcement-card h3 {
+      margin: 0 0 5px 0;
+      color: #4CAF50;
+    }
+
+    .announcement-card p {
+      margin: 0;
+      color: #555;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 25px auto 0 auto;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover { background: #45a049; }
+  </style>
+</head>
+<body>
+
+<header>Announcements</header>
+
+
+<div class="container">
+  <div class="announcement-column">
+    <div class="announcement-card">
+      <h3>New Savings Feature Released</h3>
+      <p>Automatic reminders have been added for your savings contributions.</p>
+    </div>
+
+    <div class="announcement-card">
+      <h3>Emergency Fund Policy Update</h3>
+      <p>Request approval time for emergency fund withdrawals is now 24 hours.</p>
+    </div>
+
+    <div class="announcement-card">
+      <h3>Leaderboard Update</h3>
+      <p>Gamification leaderboard now shows weekly rankings for competition and rewards.</p>
+    </div>
+
+    <div class="announcement-card">
+      <h3>Maintenance Scheduled</h3>
+      <p>Platform maintenance is scheduled for 25th October from 2 AM to 5 AM. Some features may be unavailable.</p>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="location.href='features.html'">⬅ Back to Features</button>
+</div>
+
+</body>
+</html>
