@@ -17,9 +17,29 @@
             padding: 20px 0;
             font-size: 2em;
         }
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+        .top-buttons button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s ease;
+        }
+        .top-buttons button:hover {
+            background: #45a049;
+        }
         .container {
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 10px auto;
             padding: 0 20px;
         }
         .features-grid {
@@ -37,7 +57,7 @@
         .feature-card:hover { transform: translateY(-5px); }
         .feature-card h2 { margin-top: 0; color: #333; font-size: 1.5em; }
         .feature-card p { color: #555; line-height: 1.6; }
-        button {
+        .feature-card button {
             padding: 8px 16px;
             background: #4CAF50;
             color: white;
@@ -46,47 +66,52 @@
             cursor: pointer;
             margin-top: 10px;
         }
-        button:hover { background: #45a049; }
+        .feature-card button:hover { background: #45a049; }
     </style>
 </head>
 <body>
 
 <header>PaisePath Savings Platform</header>
 
+<!-- 🚀 Added Top Navigation Buttons -->
+<div class="top-buttons">
+    <button onclick="location.href='savings.html'">Savings Groups</button>
+    <button onclick="location.href='contributions.html'">Contributions Tracker</button>
+    <button onclick="location.href='login.html'">Logout</button>
+</div>
+
 <div class="container">
     <div class="features-grid">
         <div class="feature-card">
             <h2>Savings Groups</h2>
-            <p>Users can create and join savings groups with fixed contribution amounts and cycle durations, making saving collaborative and organized.</p>
+            <p>Users can create and join savings groups with fixed contribution amounts and cycle durations.</p>
+            <button onclick="location.href='savings.html'">Go to Savings Groups</button>
         </div>
+
         <div class="feature-card">
             <h2>Contributions Tracking</h2>
             <p>Track your deposits and view your contribution history.</p>
             <button onclick="location.href='contributions.html'">View Contributions</button>
         </div>
+
         <div class="feature-card">
             <h2>Emergency Fund Bidding</h2>
-            <p>Members can request or bid for pooled funds in emergencies. Funds are allocated based on group consensus or pre-defined rules.</p>
+            <p>Request or bid for pooled funds during emergencies, distributed by group consensus.</p>
         </div>
+
         <div class="feature-card">
             <h2>Transaction History</h2>
-            <p>Every transaction is logged in detail, aiding transparency, record keeping, and dispute resolution when needed.</p>
+            <p>Every transaction is logged in detail for transparency and dispute resolution.</p>
         </div>
+
         <div class="feature-card">
             <h2>Gamification</h2>
-            <p>Reward consistent savers with leaderboards and bonus points, making saving fun and motivating users to participate regularly.</p>
+            <p>Earn points and rewards for consistent saving through leaderboards and achievements.</p>
         </div>
-        <div class="feature-card">
-            <h2>Payment Records</h2>
-            <p>Simulated UPI-like records track deposits and payouts, ensuring smooth and reliable financial transactions.</p>
-        </div>
-        <div class="feature-card">
-            <h2>Fraud Detection</h2>
-            <p>Basic logic flags missed payments or irregular activities, maintaining the integrity and trustworthiness of the system.</p>
-        </div>
+
         <div class="feature-card">
             <h2>Notifications</h2>
-            <p>SMS/email reminders keep users informed of upcoming contributions, ensuring timely payments and engagement.</p>
+            <p>Receive reminders about upcoming contributions through SMS or email.</p>
         </div>
     </div>
 </div>
