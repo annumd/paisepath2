@@ -86,42 +86,68 @@
 
   <button onclick="addContribution()">Add Contribution</button>
 </div>
-
 <script>
 function addContribution() {
   const month = document.getElementById('monthInput').value.trim();
   const amount = document.getElementById('amountInput').value.trim();
+  const user_id = 1; // assuming user_id = 1 for now
 
   if (!month || !amount) {
     alert("Please enter both month and amount!");
     return;
   }
 
-  const table = document.getElementById('contributionTable').getElementsByTagName('tbody')[0];
-  const newRow = table.insertRow();
-  const cellMonth = newRow.insertCell(0);
-  const cellAmount = newRow.insertCell(1);
-
-  cellMonth.textContent = month;
-  cellAmount.textContent = amount;
-
-  // Clear inputs after adding
-  document.getElementById('monthInput').value = '';
-  document.getElementById('amountInput').value = '';
-  fetch("http://localhost:5000/contributions/1")
+  // 1️⃣ Send data to backend via POST
+  fetch("http://localhost:5000/contributions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ month, amount, user_id })
+  })
   .then(res => res.json())
-  .then(data => {
-    const tableBody = document.querySelector("#contributionTable tbody");
-    tableBody.innerHTML = "";
-    data.forEach(row => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `<td>${row.month}</td><td>${row.amount}</td>`;
-      tableBody.appendChild(tr);
-    });
-  });
+  .then(response => {
+    console.log("Server response:", response);
 
+    // 2️⃣ Once saved in backend, reload all contributions from database
+    fetch("http://localhost:5000/contributions/1")
+      .then(res => res.json())
+      .then(data => {
+        const tableBody = document.querySelector("#contributionTable tbody");
+        tableBody.innerHTML = "";
+        data.forEach(row => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${row.month}</td><td>${row.amount}</td>`;
+          tableBody.appendChild(tr);
+        });
+
+        // 3️⃣ Clear input fields
+        document.getElementById('monthInput').value = '';
+        document.getElementById('amountInput').value = '';
+      });
+  })
+  .catch(err => {
+    console.error("Error:", err);
+    alert("Failed to save contribution. Check console for details.");
+  });
 }
+
+// 🧠 Auto-load existing contributions when page opens
+window.onload = () => {
+  fetch("http://localhost:5000/contributions/1")
+    .then(res => res.json())
+    .then(data => {
+      const tableBody = document.querySelector("#contributionTable tbody");
+      tableBody.innerHTML = "";
+      data.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${row.month}</td><td>${row.amount}</td>`;
+        tableBody.appendChild(tr);
+      });
+    });
+};
 </script>
+
 
 </body>
 </html>
