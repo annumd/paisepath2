@@ -108,6 +108,18 @@ function addContribution() {
   // Clear inputs after adding
   document.getElementById('monthInput').value = '';
   document.getElementById('amountInput').value = '';
+  fetch("http://localhost:5000/contributions/1")
+  .then(res => res.json())
+  .then(data => {
+    const tableBody = document.querySelector("#contributionTable tbody");
+    tableBody.innerHTML = "";
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${row.month}</td><td>${row.amount}</td>`;
+      tableBody.appendChild(tr);
+    });
+  });
+
 }
 </script>
 
