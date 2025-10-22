@@ -120,33 +120,65 @@
 </div>
 
 <script>
-    function submitRequest() {
-        const name = document.getElementById("user").value;
-        const amount = document.getElementById("amount").value;
-        const reason = document.getElementById("reason").value;
+const user_id = 1; // optional, if you want to track user
 
-        if (!name || !amount || !reason) {
-            alert("Please fill all fields!");
-            return;
-        }
+function submitRequest() {
+    const name = document.getElementById("user").value.trim();
+    const amount = document.getElementById("amount").value.trim();
+    const reason = document.getElementById("reason").value.trim();
 
-        const table = document.getElementById("fundBody");
-        const newRow = table.insertRow();
+    if (!name || !amount || !reason) {
+        alert("Please fill all fields!");
+        return;
+    }
 
-        newRow.innerHTML = `
-            <td>${name}</td>
-            <td>${amount}</td>
-            <td>${reason}</td>
-            <td class="status">Pending</td>
-        `;
-
+    // 1️⃣ Send POST request to backend
+    fetch("http://localhost:5000/emergency", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_name: name, amount, reason })
+    })
+    .then(res => res.json())
+    .then(response => {
+        console.log("Server response:", response);
+        // 2️⃣ Refresh the table from backend
+        loadEmergencyRequests();
+        // 3️⃣ Clear inputs
         document.getElementById("user").value = "";
         document.getElementById("amount").value = "";
         document.getElementById("reason").value = "";
+    })
+    .catch(err => {
+        console.error("Error:", err);
+        alert("Failed to submit request. Check console.");
+    });
+}
 
-        alert("Your emergency fund request has been submitted!");
-    }
+// Function to fetch all emergency requests from backend
+function loadEmergencyRequests() {
+    fetch("http://localhost:5000/emergency")
+    .then(res => res.json())
+    .then(data => {
+        const tableBody = document.getElementById("fundBody");
+        tableBody.innerHTML = ""; // clear old rows
+        data.forEach(row => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${row.user_name}</td>
+                <td>${row.amount}</td>
+                <td>${row.reason}</td>
+                <td class="status">Pending</td>
+            `;
+            tableBody.appendChild(tr);
+        });
+    })
+    .catch(err => console.error("Error loading data:", err));
+}
+
+// Load requests automatically when page loads
+window.onload = loadEmergencyRequests;
 </script>
+
 
 </body>
 </html>
